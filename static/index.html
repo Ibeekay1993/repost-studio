@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Repost Studio</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b0f14;--surface:#121922;--surface-raised:#18212b;--line:#293542;--text:#eff5f2;--muted:#a7b5b0;--accent:#b9ed83;--accent-ink:#10200e;--warn:#ead38a;--danger:#ff9898;--ok:#b9ed83;--focus:#e4ffbb;--radius:14px}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}a{color:var(--accent)}:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+    .shell{max-width:1240px;margin:auto;padding:0 22px}.site-header{border-bottom:1px solid var(--line);background:#0e1319}.header-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px;color:var(--text);text-decoration:none;font-size:19px;font-weight:780;letter-spacing:-.4px}.brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-size:17px;font-weight:900}.header-actions{display:flex;align-items:center;gap:10px}.local-pill{border:1px solid #425444;border-radius:99px;padding:5px 11px;color:var(--accent);font-size:13px}.main{padding-top:32px;padding-bottom:70px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.6px;color:var(--accent);font-weight:750}h1{font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-1.2px;margin:7px 0}h2{font-size:19px;line-height:1.25;margin:0 0 6px}h3{font-size:16px;line-height:1.35;margin:0}p{margin:0;color:var(--muted)}.intro{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}.intro p{margin-top:9px;max-width:690px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}.auth-card{max-width:500px;margin:10vh auto;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}.auth-card p{margin:8px 0 18px}.field{width:100%;background:#0b1117;color:var(--text);border:1px solid #394752;border-radius:9px;padding:11px 12px;min-width:0}.field:focus{border-color:var(--accent)}textarea.field{min-height:74px;resize:vertical}.field-label{display:block;font-size:14px;font-weight:650;margin:0 0 6px}.help{display:block;color:var(--muted);font-size:13px;margin-top:6px}.btn{display:inline-flex;justify-content:center;align-items:center;min-height:42px;border:1px solid #394752;border-radius:9px;background:#222e38;color:var(--text);padding:8px 13px;font-weight:680;text-decoration:none}.btn:hover{filter:brightness(1.15)}.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}.btn.quiet{background:transparent}.btn.danger{border-color:#694044;color:#ffd0d0}.btn:disabled{opacity:.55;cursor:not-allowed}.form-row{display:flex;align-items:end;gap:9px}.form-row .grow{flex:1;min-width:0}.notice{padding:12px 14px;border:1px solid #615731;background:#282519;color:#f1e2aa;border-radius:10px;font-size:14px;margin-top:14px}.error-box{padding:10px 12px;background:#45272c;border:1px solid #75424a;border-radius:9px;color:#ffe4e4;margin-top:12px}.hidden{display:none!important}
+    .tabs{display:flex;flex-wrap:wrap;gap:7px;border-bottom:1px solid var(--line);margin:20px 0 23px}.tab-button{min-height:44px;padding:9px 13px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--muted);font-weight:680}.tab-button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}.tab-panel{display:none}.tab-panel.active{display:block}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:15px}.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}.stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}.stat b{display:block;font-size:28px;line-height:1.2;margin-top:8px}.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.status-line{display:flex;align-items:center;gap:10px;margin-top:12px}.status-dot{width:9px;height:9px;background:var(--accent);border-radius:50%}.subtle{font-size:13px;color:var(--muted)}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:15px}.section-heading p{margin-top:5px}.account-list,.queue-list{display:grid;gap:11px}.account-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(150px,1fr) auto;gap:12px;align-items:center;padding:13px 0;border-top:1px solid var(--line)}.account-row:first-child{border-top:0}.account-name{font-weight:680;overflow-wrap:anywhere}.account-meta{font-size:13px;color:var(--muted)}.account-actions{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}.queue-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:17px 0}.filters{display:flex;gap:7px;flex-wrap:wrap}.filter-btn{min-height:40px;padding:7px 11px;border-radius:9px;border:1px solid var(--line);background:transparent;color:var(--muted)}.filter-btn[aria-pressed="true"]{background:#263723;color:var(--accent);border-color:#526e45}.video-card{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:17px}.video-title-row{display:flex;align-items:start;justify-content:space-between;gap:14px}.video-title{overflow-wrap:anywhere}.meta{display:flex;flex-wrap:wrap;gap:8px 14px;color:var(--muted);font-size:13px;margin-top:7px}.status{white-space:nowrap;display:inline-flex;align-items:center;border-radius:99px;padding:3px 9px;background:#273441;color:#d5e1e7;font-size:12px;font-weight:700}.status.ready_to_post,.status.downloaded,.status.posted_confirmed{background:#263723;color:var(--accent)}.status.download_failed{background:#46292e;color:#ffc4c4}.video-error{padding:9px 11px;border-left:3px solid var(--danger);background:#24191c;color:#ffcccc;font-size:13px;overflow-wrap:anywhere}.video-actions{display:flex;flex-wrap:wrap;gap:8px}.caption-details{border-top:1px solid var(--line);padding-top:10px}.caption-details summary{cursor:pointer;color:var(--muted);font-size:14px}.caption-form{display:grid;gap:8px;margin-top:10px}.permission-check{display:flex;align-items:start;gap:9px;max-width:730px;font-size:14px;color:var(--text)}.permission-check input{width:18px;height:18px;flex:0 0 auto;margin-top:2px;accent-color:var(--accent)}.empty{padding:40px 20px;border:1px dashed #3b4a55;border-radius:12px;text-align:center;color:var(--muted)}.history-list{display:grid;gap:0}.history-row{display:grid;grid-template-columns:minmax(160px,1fr) minmax(100px,.6fr) minmax(180px,1.4fr) auto;gap:12px;align-items:start;padding:12px 0;border-top:1px solid var(--line)}.history-row:first-child{border-top:0}.history-action{font-weight:680}.history-detail{font-size:13px;color:var(--muted);overflow-wrap:anywhere}.settings-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.setting{padding:14px;border:1px solid var(--line);border-radius:11px}.setting .help{min-height:40px}.toast{position:fixed;right:18px;bottom:18px;z-index:5;max-width:min(420px,calc(100vw - 36px));padding:13px 16px;border-radius:10px;background:#263723;color:#e9ffd7;box-shadow:0 10px 32px #0008}.toast.error{background:#45272c;color:#ffe4e4}.site-footer{margin-top:23px;font-size:13px;color:var(--muted)}
+    @media(max-width:850px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.overview-grid{grid-template-columns:1fr}.account-row{grid-template-columns:1fr auto}.account-meta{grid-column:1}.account-actions{grid-column:2;grid-row:1 / span 2}.settings-form{grid-template-columns:1fr 1fr}.history-row{grid-template-columns:1fr 1fr}.history-detail{grid-column:1 / -1}}
+    @media(max-width:520px){.shell{padding:0 15px}.main{padding-top:25px}.header-inner{min-height:62px}.intro{align-items:start;flex-direction:column}.form-row{align-items:stretch;flex-direction:column}.form-row .btn{width:100%}.stats{gap:8px}.stat{padding:13px}.stat b{font-size:24px}.card{padding:16px}.account-row{grid-template-columns:1fr}.account-meta,.account-actions{grid-column:1;grid-row:auto}.account-actions{justify-content:flex-start}.settings-form{grid-template-columns:1fr}.video-title-row{flex-direction:column}.history-row{grid-template-columns:1fr}.history-detail{grid-column:auto}.tab-button{padding-left:9px;padding-right:9px;font-size:14px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#overview" aria-label="Repost Studio home"><span class="brand-mark" aria-hidden="true">R</span><span>Repost Studio</span></a>
+      <div class="header-actions"><span class="local-pill">Local dashboard</span><button id="lock-button" class="btn quiet hidden" type="button">Lock</button></div>
+    </div>
+  </header>
+  <main class="shell main">
+    <section id="login-panel" class="auth-card" aria-labelledby="login-title">
+      <div class="eyebrow">Private local access</div>
+      <h1 id="login-title">Unlock your dashboard</h1>
+      <p>Enter the ADMIN_TOKEN from this project’s .env file. The token stays in this browser tab only.</p>
+      <form id="unlock-form">
+        <label class="field-label" for="admin-token">Dashboard token</label>
+        <input id="admin-token" class="field" type="password" autocomplete="current-password" required>
+        <button class="btn primary" style="margin-top:12px;width:100%" type="submit">Unlock dashboard</button>
+      </form>
+      <div id="auth-error" class="error-box hidden" role="alert" tabindex="-1"></div>
+    </section>
+
+    <div id="app-shell" class="hidden">
+      <section class="intro">
+        <div><div class="eyebrow">Creator workflow</div><h1>Review videos before they leave the queue.</h1><p>Monitor accessible TikTok profiles, check each download, then prepare a post for manual upload to X.</p></div>
+        <button id="scan-all" class="btn primary" type="button">Scan active profiles</button>
+      </section>
+
+      <nav class="tabs" aria-label="Dashboard sections">
+        <button class="tab-button" type="button" data-tab="overview" aria-selected="true">Overview</button>
+        <button class="tab-button" type="button" data-tab="watchlist" aria-selected="false">Watchlist</button>
+        <button class="tab-button" type="button" data-tab="queue" aria-selected="false">Video queue</button>
+        <button class="tab-button" type="button" data-tab="history" aria-selected="false">History</button>
+        <button class="tab-button" type="button" data-tab="settings" aria-selected="false">Settings</button>
+      </nav>
+
+      <section id="tab-overview" class="tab-panel active" aria-labelledby="overview-heading">
+        <h2 id="overview-heading" class="hidden">Overview</h2>
+        <div class="stats">
+          <div class="stat"><span>Active profiles</span><b id="stat-profiles">0</b></div>
+          <div class="stat"><span>Ready to review</span><b id="stat-ready">0</b></div>
+          <div class="stat"><span>Confirmed posted</span><b id="stat-posted">0</b></div>
+          <div class="stat"><span>Download issues</span><b id="stat-failed">0</b></div>
+        </div>
+        <div class="overview-grid">
+          <section class="card"><h2>Monitor status</h2><p class="subtle">Polling runs locally while this application is running.</p><div class="status-line"><span id="worker-dot" class="status-dot" aria-hidden="true"></span><strong id="worker-label">Checking monitor…</strong></div><p id="worker-detail" class="subtle" style="margin-top:8px"></p></section>
+          <section class="card"><h2>Local media storage</h2><p class="subtle">Downloaded files stay in this project’s ignored downloads folder.</p><div class="status-line"><strong id="storage-label">0 bytes</strong></div><p class="subtle" style="margin-top:8px">Old files are eligible for cleanup after a post is confirmed and the retention period passes.</p></section>
+        </div>
+      </section>
+
+      <section id="tab-watchlist" class="tab-panel" aria-labelledby="watchlist-heading">
+        <div class="section-heading"><div><h2 id="watchlist-heading">TikTok watchlist</h2><p>Add profiles you own or have permission to monitor and reuse.</p></div></div>
+        <div class="card" style="margin-bottom:14px">
+          <form id="account-form" class="form-row">
+            <div class="grow"><label class="field-label" for="username">Profile URL or username</label><input id="username" class="field" maxlength="200" placeholder="https://www.tiktok.com/@creator" required><span class="help">Public profile pages only. Blocked or unavailable profiles will back off and show an error.</span></div>
+            <button class="btn primary" type="submit">Add profile</button>
+          </form>
+          <div id="account-error" class="error-box hidden" role="alert"></div>
+        </div>
+        <div id="accounts" class="card account-list"></div>
+      </section>
+
+      <section id="tab-queue" class="tab-panel" aria-labelledby="queue-heading">
+        <div class="section-heading"><div><h2 id="queue-heading">Video queue</h2><p>New items are not published automatically. Review permission and upload to X yourself.</p></div></div>
+        <div class="card" style="margin-bottom:14px">
+          <form id="video-form" class="form-row">
+            <div class="grow"><label class="field-label" for="video-url">Add a public TikTok video link</label><input id="video-url" class="field" type="url" inputmode="url" placeholder="https://www.tiktok.com/@creator/video/123456" maxlength="1000" required></div>
+            <button class="btn" type="submit">Add to queue</button>
+          </form>
+          <div id="video-error" class="error-box hidden" role="alert"></div>
+        </div>
+        <div class="queue-toolbar"><div class="filters" role="group" aria-label="Filter queue"><button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter-btn" type="button" data-filter="needs_download" aria-pressed="false">Needs download</button><button class="filter-btn" type="button" data-filter="ready" aria-pressed="false">Ready</button><button class="filter-btn" type="button" data-filter="issues" aria-pressed="false">Issues</button><button class="filter-btn" type="button" data-filter="posted_confirmed" aria-pressed="false">Posted</button></div><span id="queue-count" class="subtle"></span></div>
+        <div id="queue" class="queue-list"></div>
+      </section>
+
+      <section id="tab-history" class="tab-panel" aria-labelledby="history-heading">
+        <div class="section-heading"><div><h2 id="history-heading">Activity history</h2><p>Detection, downloads, caption edits, and manual publishing confirmations.</p></div></div>
+        <div id="history" class="card history-list"></div>
+      </section>
+
+      <section id="tab-settings" class="tab-panel" aria-labelledby="settings-heading">
+        <div class="section-heading"><div><h2 id="settings-heading">Local settings</h2><p>These values are stored in the local SQLite database.</p></div></div>
+        <div class="card">
+          <form id="settings-form" class="settings-form">
+            <div class="setting"><label class="field-label" for="poll-interval">Polling interval in minutes</label><input class="field" id="poll-interval" type="number" min="5" max="180" required><span class="help">5 to 180 minutes. Failed profiles wait longer before retrying.</span></div>
+            <div class="setting"><label class="field-label" for="max-size">Maximum video size in MB</label><input class="field" id="max-size" type="number" min="10" max="2048" required><span class="help">10 to 2,048 MB. Files over this limit are rejected.</span></div>
+            <div class="setting"><label class="field-label" for="retention">Retention after handling in days</label><input class="field" id="retention" type="number" min="1" max="90" required><span class="help">1 to 90 days. Only handled files are removed; history remains.</span></div>
+            <div><button class="btn primary" type="submit">Save settings</button></div>
+          </form>
+        </div>
+      </section>
+      <p class="site-footer">TikTok retrieval depends on public access and yt-dlp support. X publishing is manual: Repost Studio prepares the caption and file but does not post for you.</p>
+    </div>
+  </main>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script>
+    const state = {accounts: [], videos: [], history: [], settings: {}, worker: {}};
+    let token = sessionStorage.getItem('repost_token') || '';
+    let activeFilter = 'all';
+    let toastTimer;
+    const $ = (id) => document.getElementById(id);
+    const esc = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const formatDate = (value) => value ? new Date(value).toLocaleString() : 'Not yet';
+    const formatBytes = (value) => { const n = Number(value || 0); if (!n) return '0 bytes'; const units = ['bytes','KB','MB','GB']; const i = Math.min(Math.floor(Math.log(n)/Math.log(1024)), 3); return `${(n/Math.pow(1024,i)).toFixed(i ? 1 : 0)} ${units[i]}`; };
+    const statusLabels = {discovered:'Needs download',downloading:'Downloading',downloaded:'Downloaded',ready_to_post:'Ready for manual upload',posted_confirmed:'Posted · confirmed',download_failed:'Download failed'};
+
+    function showToast(message, error=false) {
+      const el = $('toast'); el.textContent = message; el.classList.toggle('error', error); el.classList.remove('hidden');
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.add('hidden'), 5200);
+    }
+    function showFormError(id, message) { const el = $(id); el.textContent = message; el.classList.remove('hidden'); }
+    function clearFormError(id) { const el = $(id); el.textContent = ''; el.classList.add('hidden'); }
+    function showLogin(message='') {
+      $('login-panel').classList.remove('hidden'); $('app-shell').classList.add('hidden'); $('lock-button').classList.add('hidden');
+      if (message) showFormError('auth-error', message); else clearFormError('auth-error');
+    }
+    async function api(path, method='GET', body) {
+      const options = {method, headers:{'X-Admin-Token':token}};
+      if (body !== undefined) { options.headers['Content-Type']='application/json'; options.body=JSON.stringify(body); }
+      const res = await fetch('/api/'+path, options);
+      const data = await res.json().catch(() => ({}));
+      if (res.status === 401 || res.status === 503) { token=''; sessionStorage.removeItem('repost_token'); showLogin(data.detail || 'Dashboard access is unavailable.'); }
+      if (!res.ok) throw new Error(data.detail || 'Request failed.');
+      return data;
+    }
+    async function unlock(value) {
+      token=value.trim();
+      const result=await api('state');
+      sessionStorage.setItem('repost_token', token);
+      $('login-panel').classList.add('hidden'); $('app-shell').classList.remove('hidden'); $('lock-button').classList.remove('hidden');
+      clearFormError('auth-error'); render(result);
+    }
+    async function refresh() {
+      if (!token) return;
+      const focused=document.activeElement;
+      if($('app-shell').contains(focused) && ['INPUT','TEXTAREA'].includes(focused.tagName)) return;
+      try { render(await api('state')); }
+      catch (error) { if (token) showToast(error.message,true); }
+    }
+    function selectTab(tab) {
+      document.querySelectorAll('.tab-button').forEach(button => button.setAttribute('aria-selected', String(button.dataset.tab===tab)));
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.toggle('active', panel.id===`tab-${tab}`));
+      location.hash=tab;
+    }
+    function render(next) {
+      Object.assign(state,next);
+      $('stat-profiles').textContent=state.accounts.filter(a=>a.enabled).length;
+      $('stat-ready').textContent=state.videos.filter(v=>['downloaded','ready_to_post'].includes(v.status)).length;
+      $('stat-posted').textContent=state.videos.filter(v=>v.status==='posted_confirmed').length;
+      $('stat-failed').textContent=state.videos.filter(v=>v.status==='download_failed').length;
+      $('worker-label').textContent=state.worker.enabled?'Monitor is running locally':'Background monitor is paused';
+      $('worker-dot').style.opacity=state.worker.enabled?'1':'.45';
+      $('worker-detail').textContent=`Last monitor cycle: ${formatDate(state.worker.heartbeat_at)} · Last scan started: ${formatDate(state.worker.last_scan_started_at)}`;
+      $('storage-label').textContent=formatBytes(state.worker.media_bytes);
+      renderAccounts(); renderQueue(); renderHistory(); renderSettings();
+    }
+    function renderAccounts() {
+      const root=$('accounts');
+      if (!state.accounts.length) { root.innerHTML='<div class="empty">No profiles on the watchlist yet.</div>'; return; }
+      root.innerHTML=state.accounts.map(a=>`<article class="account-row" data-account="${a.id}">
+        <div><div class="account-name">@${esc(a.username)}</div><div class="account-meta">${a.enabled?'Active':'Paused'} · ${a.consecutive_failures ? `${a.consecutive_failures} consecutive failure(s)` : 'No current scan failures'}</div></div>
+        <div class="account-meta">Last checked<br>${esc(formatDate(a.last_checked_at))}</div>
+        <div class="account-actions"><button class="btn quiet" type="button" data-action="scan-profile">Scan</button><button class="btn quiet" type="button" data-action="toggle-profile">${a.enabled?'Pause':'Resume'}</button><button class="btn danger" type="button" data-action="remove-profile">Remove</button></div>
+      </article>`).join('');
+    }
+    function filteredVideos() {
+      if(activeFilter==='needs_download') return state.videos.filter(v=>['discovered','downloading'].includes(v.status));
+      if(activeFilter==='ready') return state.videos.filter(v=>['downloaded','ready_to_post'].includes(v.status));
+      if(activeFilter==='issues') return state.videos.filter(v=>v.status==='download_failed');
+      if(activeFilter==='posted_confirmed') return state.videos.filter(v=>v.status==='posted_confirmed');
+      return state.videos;
+    }
+    function renderQueue() {
+      const root=$('queue'), videos=filteredVideos();
+      $('queue-count').textContent=`${videos.length} item${videos.length===1?'':'s'}`;
+      if (!videos.length) { root.innerHTML='<div class="empty">No queue items in this view.</div>'; return; }
+      root.innerHTML=videos.map(v=>{
+        const hasFile=Boolean(v.filepath);
+        const actions=[];
+        actions.push(`<a class="btn quiet" href="${esc(v.source_url)}" target="_blank" rel="noopener noreferrer">Open source</a>`);
+        if(hasFile) actions.push(`<button class="btn quiet" type="button" data-action="download-file">Download video</button>`);
+        if(v.status==='download_failed') actions.push(`<button class="btn primary" type="button" data-action="retry-download">Retry download</button>`);
+        if(!hasFile && v.status!=='downloading' && v.status!=='posted_confirmed') actions.push(`<button class="btn primary" type="button" data-action="download-video">Download video</button>`);
+        actions.push(`<button class="btn quiet" type="button" data-action="edit-caption">Edit caption</button>`);
+        let publish='';
+        if(hasFile && ['downloaded','ready_to_post'].includes(v.status)) {
+          publish=`<div class="notice"><label class="permission-check"><input type="checkbox" data-permission ${v.permission_confirmed?'checked':''}><span>I own this video or have permission to reuse it on X.</span></label><div class="video-actions" style="margin-top:11px"><button class="btn primary" type="button" data-action="prepare-x">Prepare for X</button></div><p class="help">This opens X and downloads the video. Upload and publish manually; Repost Studio will wait for your confirmation.</p></div>`;
+        }
+        let confirm='';
+        if(v.status==='ready_to_post') {
+          confirm=`<div class="form-row"><div class="grow"><label class="field-label" for="x-url-${v.id}">X post URL (optional)</label><input class="field" id="x-url-${v.id}" type="url" inputmode="url" placeholder="https://x.com/name/status/…"></div><button class="btn" type="button" data-action="confirm-posted">Confirm posted</button></div>`;
+        }
+        return `<article class="video-card" data-video="${v.id}">
+          <div class="video-title-row"><div><h3 class="video-title">${esc(v.caption||v.source_caption||'TikTok video')}</h3><div class="meta"><span>${esc(v.username?`@${v.username}`:'Direct link')}</span><span>Added ${esc(formatDate(v.created_at))}</span>${v.media_size_bytes?`<span>${esc(formatBytes(v.media_size_bytes))} · ${esc(v.validation_level==='ffmpeg_decode'?'FFmpeg decoded':'signature checked')}</span>`:''}</div></div><span class="status ${esc(v.status)}">${esc(statusLabels[v.status]||v.status)}</span></div>
+          ${v.error?`<div class="video-error" role="status">${esc(v.error)}</div>`:''}
+          <div class="video-actions">${actions.join('')}</div>${publish}${confirm}
+          <details class="caption-details"><summary>Edit X caption</summary><form class="caption-form" data-caption-form><label class="field-label" for="caption-${v.id}">Caption (up to 280 characters)</label><textarea class="field" id="caption-${v.id}" maxlength="280">${esc(v.caption||'')}</textarea><button class="btn" type="submit">Save caption</button></form></details>
+        </article>`;
+      }).join('');
+    }
+    function renderHistory() {
+      const root=$('history');
+      if(!state.history.length){root.innerHTML='<div class="empty">No actions recorded yet.</div>';return;}
+      root.innerHTML=state.history.map(item=>`<article class="history-row"><div class="history-action">${esc(item.action.replaceAll('_',' '))}</div><div><span class="status ${item.outcome==='failed'?'download_failed':'downloaded'}">${esc(item.outcome.replaceAll('_',' '))}</span></div><div class="history-detail">${esc(item.detail||'')}${item.username?` · @${esc(item.username)}`:''}</div><time class="subtle">${esc(formatDate(item.created_at))}</time></article>`).join('');
+    }
+    function renderSettings() {
+      $('poll-interval').value=state.settings.poll_interval_minutes??15;
+      $('max-size').value=state.settings.max_video_mb??300;
+      $('retention').value=state.settings.retention_days??7;
+    }
+    async function fetchFile(videoId) {
+      const res=await fetch(`/api/videos/${videoId}/file`,{headers:{'X-Admin-Token':token}});
+      if(!res.ok) { const data=await res.json().catch(()=>({})); throw new Error(data.detail||'Video file is not available.'); }
+      const blob=await res.blob(), url=URL.createObjectURL(blob), link=document.createElement('a');
+      link.href=url; link.download=`repost-${videoId}`; document.body.append(link); link.click(); link.remove(); setTimeout(()=>URL.revokeObjectURL(url),5000);
+    }
+    async function doAction(action) { try { await action(); await refresh(); } catch(error) { showToast(error.message,true); } }
+    async function submitForm(errorId, action) { try { await action(); await refresh(); } catch(error) { showFormError(errorId,error.message); } }
+
+    $('unlock-form').addEventListener('submit',async event=>{event.preventDefault();clearFormError('auth-error');try{await unlock($('admin-token').value);}catch(error){showFormError('auth-error',error.message);$('auth-error').focus();}});
+    $('lock-button').addEventListener('click',()=>{token='';sessionStorage.removeItem('repost_token');showLogin();$('admin-token').value='';});
+    $('scan-all').addEventListener('click',()=>doAction(async()=>{const result=await api('scan','POST');showToast(`Started scans for ${result.started} active profile(s).`);}));
+    document.querySelectorAll('.tab-button').forEach(button=>button.addEventListener('click',()=>selectTab(button.dataset.tab)));
+    document.querySelectorAll('.filter-btn').forEach(button=>button.addEventListener('click',()=>{activeFilter=button.dataset.filter;document.querySelectorAll('.filter-btn').forEach(x=>x.setAttribute('aria-pressed',String(x===button)));renderQueue();}));
+    $('account-form').addEventListener('submit',event=>{event.preventDefault();clearFormError('account-error');submitForm('account-error',async()=>{await api('accounts','POST',{username:$('username').value});$('username').value='';showToast('Profile added to the watchlist.');});});
+    $('video-form').addEventListener('submit',event=>{event.preventDefault();clearFormError('video-error');submitForm('video-error',async()=>{await api('videos','POST',{url:$('video-url').value});$('video-url').value='';showToast('Video added to the queue.');});});
+    $('settings-form').addEventListener('submit',event=>{event.preventDefault();doAction(async()=>{await api('settings','PUT',{poll_interval_minutes:Number($('poll-interval').value),max_video_mb:Number($('max-size').value),retention_days:Number($('retention').value)});showToast('Settings saved.');});});
+    $('accounts').addEventListener('click',event=>{const button=event.target.closest('button[data-action]');if(!button)return;const card=button.closest('[data-account]'),id=card.dataset.account,account=state.accounts.find(a=>String(a.id)===id);if(button.dataset.action==='scan-profile')doAction(async()=>{await api(`accounts/${id}/scan`,'POST');showToast(`Started scan for @${account.username}.`);});if(button.dataset.action==='toggle-profile')doAction(async()=>{await api(`accounts/${id}`,'PATCH',{enabled:!account.enabled});showToast(account.enabled?'Profile paused.':'Profile resumed.');});if(button.dataset.action==='remove-profile'&&confirm(`Remove @${account.username} from the watchlist? Queued videos will be kept.`))doAction(async()=>{await api(`accounts/${id}`,'DELETE');showToast('Profile removed; queue history kept.');});});
+    $('queue').addEventListener('submit',event=>{const form=event.target.closest('[data-caption-form]');if(!form)return;event.preventDefault();const card=form.closest('[data-video]'),id=card.dataset.video,caption=form.querySelector('textarea').value;doAction(async()=>{await api(`videos/${id}`,'PATCH',{caption});showToast('Caption saved.');});});
+    $('queue').addEventListener('click',event=>{const button=event.target.closest('button[data-action]');if(!button)return;const card=button.closest('[data-video]'),id=card.dataset.video,video=state.videos.find(v=>String(v.id)===id);
+      if(button.dataset.action==='download-video'||button.dataset.action==='retry-download')doAction(async()=>{await api(`videos/${id}/download`,'POST');showToast('Download started.');});
+      if(button.dataset.action==='download-file')doAction(async()=>{await fetchFile(id);});
+      if(button.dataset.action==='edit-caption'){card.querySelector('details').open=true;card.querySelector('textarea').focus();}
+      if(button.dataset.action==='prepare-x')doAction(async()=>{const permission=card.querySelector('[data-permission]').checked;if(!permission)throw new Error('Confirm reuse permission before preparing an X post.');const xTab=window.open('about:blank','_blank');if(xTab)xTab.opener=null;await api(`videos/${id}/prepare-publish`,'POST',{permission_confirmed:true});let copied=true;try{await navigator.clipboard.writeText(video.caption||'');}catch{copied=false;}await fetchFile(id);if(xTab)xTab.location='https://x.com/compose/post';showToast(copied?'Caption copied. Attach the downloaded video in X, then confirm the post here.':'Video prepared. Copy the caption from the queue, attach the file in X, then confirm here.');});
+      if(button.dataset.action==='confirm-posted'&&confirm('Confirm that you published this video on X?'))doAction(async()=>{const xUrl=card.querySelector('input[id^="x-url-"]').value;await api(`videos/${id}/confirm-published`,'POST',{x_url:xUrl});showToast('Publication confirmation recorded.');});
+    });
+
+    if(token) unlock(token).catch(error=>{token='';sessionStorage.removeItem('repost_token');showLogin(error.message);});
+    const initialTab=location.hash.slice(1);if(['overview','watchlist','queue','history','settings'].includes(initialTab))selectTab(initialTab);
+    setInterval(refresh,12000);
+  </script>
+</body>
+</html>
